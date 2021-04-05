@@ -6,24 +6,28 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    db.query(`SELECT * FROM users
+    JOIN maps on maps.user_id = users.id
+    ORDER BY maps.id DESC;`)
       .then(data => {
         const users = data.rows;
-        res.json({ users });
+        res.send({
+          users
+        });
       })
       .catch(err => {
         res
           .status(500)
-          .json({ error: err.message });
+          .json({
+            error: err.message
+          });
       });
   });
   return router;
 };
-
-
