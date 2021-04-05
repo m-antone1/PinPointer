@@ -33,6 +33,7 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
@@ -48,6 +49,8 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/maps", mapsRoutes(db));
 app.use("/api/markers", markersRoutes(db));
 app.use("/api/favourites", favouritesRoutes(db));
+
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -57,6 +60,7 @@ app.use("/api/favourites", favouritesRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
