@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>PinPointer</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <style>
+      #map
+      { height: 600px; width: 700px; };
+    </style>
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    
   </head>
+  <nav class="navbar navbar-expand-lg">
 
+    
+    <h1 class="text-nowrap">Welcome to PinPointer</h1>
+      <form method="POST" action="/login">
+         <div>
+          <label class="text-muted">User Login: </label>
+          <input type=email name="email" placeholder="your email" style="width: 300px">
+          <input type=password name="password" placeholder="your password">
+          <input class="login-btn" type="submit" value="Login">
+         </div>
+      </form>
+
+
+    <button id="new-map-button" class="new">Create a map</button>
+  </nav>
   <body>
-    <h1>Hello World!</h1>
+    
+    <h3>My PinPointer Maps</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+      const map = L.map('map').setView([51.046273746761976, -114.07561883212541], 13);
+
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      L.marker([51, -114]).addTo(map);
+      L.marker([51.046273746761976, -114.07861883212541]).addTo(map);
+      L.marker([51.076273746761976, -114.07261883212541]).addTo(map);
+     // marker.setLatLng([latuitude, longitude]);
+
+    </script>
   </body>
 </html>
