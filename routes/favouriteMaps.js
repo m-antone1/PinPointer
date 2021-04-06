@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 module.exports = db => {
   router.get("/", (req, res) => {
-    const getFavourites = function(email, limit) {
+    const getFavourites = function (email, limit) {
       const queryParams = [];
 
       let queryString = `
@@ -27,7 +27,9 @@ module.exports = db => {
     };
     getFavourites(Number(req.cookies["user_id"]), 10)
       .then(maps => {
-        res.send({ maps });
+        res.send({
+          maps
+        });
       })
       .catch(e => {
         console.error(e);

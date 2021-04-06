@@ -1,9 +1,11 @@
--- Drop and recreate Users table (Example)
 
+-- Drop and recreate Users table (Example)
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS user_maps CASCADE;
 DROP TABLE IF EXISTS maps CASCADE;
 DROP TABLE IF EXISTS markers CASCADE;
+DROP TABLE IF EXISTS user_maps CASCADE;
+
+
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -12,20 +14,15 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE user_maps (
-  id SERIAL PRIMARY KEY NOT NULL
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE
-)
 
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
-  active BOOLEAN NOT NULL DEFAULT TRUE
-  image_url VARCHAR(255) NOT NULL,
-)
+  active BOOLEAN NOT NULL DEFAULT TRUE,
+  image_url VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE markers (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -34,7 +31,14 @@ CREATE TABLE markers (
   title VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  image_url VAR(255) NOT NULL,
+  image_url VARCHAR(255) NOT NULL,
   latitude DECIMAL NOT NULL,
   longitude DECIMAL NOT NULL
-)
+);
+
+
+CREATE TABLE user_maps (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE
+);

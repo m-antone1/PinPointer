@@ -10,7 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 const { formHandling } = require("./formHandling");
 
 // PG database client/connection setup
@@ -40,9 +40,9 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const mapRoutes = require("./routes/map");
-const markersRoutes = require("./routes/markers");
-const favMapsRoutes = require("./routes/favMaps");
+const mapsRoutes = require("./routes/maps");
+const markersRoutes = require("./routes/markers.js");
+const favouritesRoutes = require("./routes/favouriteMaps");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -70,7 +70,6 @@ app.get("/", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
-
 
 //post for login, and e-mail and password check
 app.post("/login", (req, res) => {
