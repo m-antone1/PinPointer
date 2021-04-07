@@ -135,7 +135,8 @@ window.initMap = mapid => {
 // helper function that generates user maps.
 // needs to be refactored to generate all maps connected to currently logged in user
 const mapMaker = function(mapid, mapmarkers) {
-  const lhl = { lat: 43.6442, lng: -79.4022 };
+  const lhl = { lat: 51.04635267364882, lng: -114.07574283068925 };
+
   let map = new google.maps.Map(document.getElementById(mapid), {
     zoom: 14,
     center: lhl
