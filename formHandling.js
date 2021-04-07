@@ -1,4 +1,9 @@
 const formHandling = (request, response, users) => {
+if (!request.body.input) {
+  response.render('index')
+};
+
+
   // 2 paths login and registration
   // State 1: input: email button1: login  button2: register
   // State 2: input: pass  button1: submit button2: back
@@ -7,7 +12,13 @@ const formHandling = (request, response, users) => {
   const email = request.cookies["email_validated"];
   const pass = request.cookies["pass_validated"];
   const userID = request.cookies["user_id"];
+
+
+
+
   //State 1: ask for email
+
+
   if (!email && !pass) {
     for (user of users) {
       if (request.body.input === user.email) {

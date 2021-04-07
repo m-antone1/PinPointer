@@ -1,58 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PinPointer</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <style>
-      #map
-      { height: 600px; width: 700px; };
-    </style>
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script
+      src="https://kit.fontawesome.com/90d60d73c6.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    
+    <script type="text/javascript" src="/scripts/mymaps.js"></script>
+    <script type="text/javascript" src="/scripts/favourites.js"></script>
+    <script src="/scripts/client.js"></script>
+    <script src="/scripts/map.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <title>PinPointer</title>
   </head>
-  <nav class="navbar navbar-expand-lg">
-
-    
-    <h1 class="text-nowrap">Welcome to PinPointer</h1>
-      <form method="POST" action="/login">
-         <div>
-          <label class="text-muted">User Login: </label>
-          <input type=email name="email" placeholder="your email" style="width: 300px">
-          <input type=password name="password" placeholder="your password">
-          <input class="login-btn" type="submit" value="Login">
-         </div>
-      </form>
-
-
-    <button id="new-map-button" class="new">Create a map</button>
-  </nav>
   <body>
-    
-    <h3>My PinPointer Maps</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
-      const map = L.map('map').setView([51.046273746761976, -114.07561883212541], 13);
+    <div id="create-map-div" style="display:none">
+      <form id="map-form" action="/api/maps" method="POST">
+        <h2 class="text-light">Create New Map</h2>
+        <input
+          class="form-control-lg"
+          name="title"
+          placeholder="Title"
+          required
+        />
+        <textarea
+          class="form-control-sm"
+          name="description"
+          rows="20"
+          placeholder="Enter Description Here"
+        ></textarea>
+        <input
+          class="form-control-sm"
+          type="text"
+          id="create-map"
+          name="image_url"
+          placeholder="Image Url"
+        />
+        <button
+          class="btn btn-info btn-left btn-block"
+          type="submit"
+          href="/api/maps/new"
+        >
+          Create
+        </button>
+        <button
+          id="create-map-cancel"
+          type="reset"
+          class="btn btn-info btn-right btn-block"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
 
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-      L.marker([51, -114]).addTo(map);
-      L.marker([51.046273746761976, -114.07861883212541]).addTo(map);
-      L.marker([51.076273746761976, -114.07261883212541]).addTo(map);
-     // marker.setLatLng([latuitude, longitude]);
+    <header class="text-white">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand" href="/"
+          >MapWiki <i class="fas fa-globe"></i
+        ></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a id="usermaps" class="nav-item nav-link">My Maps</a>
+            <!-- "/api/maps/new" -->
+            <a class="nav-item nav-link" id="nav-create-map">Create New Map</a>
+          </div>
+        </div>
 
-    </script>
+        <!-- input form -->
+        <b><span id="form-msg" class="text-light">Enter Email:</span></b>
+        <form
+          class="form-control form-control-lg form-inline"
+          method="post"
+          action="/login"
+          id="input-form"
+          style="display:contents !important"
+          name="usernameform"
+        >
+          <input
+            class="form-control"
+            name="email"
+            required
+            type="email"
+            placeholder="example@email.com"
+          />
+          <button class="btn btn-warning" id="login-button">Login</button>
+        </form>
+
+        <!-- register -->
+        <form
+          class="form-control form-control-lg form-inline"
+          action="/register"
+          method="post"
+          style="display:contents !important"
+          name="usernameform"
+        >
+          <button class="btn btn-warning" id="register-button">Register</button>
+        </form>
+
+        <!-- logout -->
+        <button class="btn btn-dark" style="display:inline" id="logout-button">
+          Logout
+        </button>
+      </nav>
+    </header>
+    <main>
+      <div id="map" class="map"></div>
+
+      <div class="flex">
+        <div id="map-container"></div>
+      </div>
+      <!-- Map Form -->
+
+      <div id="maps"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-1dTUpgb4f7Za4f5vey93FaMvhr13yI&amp;callback=initMap"></script>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

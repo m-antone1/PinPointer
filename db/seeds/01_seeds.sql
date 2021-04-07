@@ -1,10 +1,10 @@
 -- Users table seeds here (Example)
 
 --            USERS                 --
-INSERT INTO users (name,email,password) VALUES ('eric' , 'eric@example.com', 'password');
-INSERT INTO users (name,email,password) VALUES ('mike' , 'mike@example.com', 'password');
-INSERT INTO users (name,email,password) VALUES ('ban' , 'ban@example.com', 'password');
-INSERT INTO users (name,email,password) VALUES ('batman' , 'raho@example.com', 'password');
+INSERT INTO users (name,email,password) VALUES ('asma' , 'asma@example.com', 'password');
+INSERT INTO users (name,email,password) VALUES ('rahul' , 'rahul@example.com', 'password');
+INSERT INTO users (name,email,password) VALUES ('lucas' , 'lucas@example.com', 'password');
+INSERT INTO users (name,email,password) VALUES ('raho' , 'raho@example.com', 'password');
 
 
 

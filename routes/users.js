@@ -13,7 +13,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users
-    JOIN maps on users.id = user_id
+    JOIN maps on maps.user_id =users.id
     ORDER BY maps.id DESC;`)
       .then(data => {
         const users = data.rows;
