@@ -23,8 +23,11 @@ main {
 }
 
 nav {
-  background-color: black;
-  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+  background-color: rgb(39, 16, 240);
+  //background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+  border-bottom: 5px solid;
+  color: darkgoldenrod;
+  height: 150px;
 }
 
 .flex {
@@ -32,17 +35,17 @@ nav {
   width: 100%;
 }
 
-#form-msg,
-nav button,
-nav input,
-#logged-name {
-  margin: 0 0.2vw;
-}
-#logged-name {
-  color: gold;
-  font-weight: bolder;
-  text-shadow: 0.5px 0.5px #ff0;
-}
+// #form-msg,
+// nav button,
+// nav input,
+// #logged-name {
+//   margin: 0 0.2vw;
+// }
+// #logged-name {
+//   color: rgb(91, 224, 218);
+//   font-weight: bolder;
+//   text-shadow: 0.5px 0.5px rgb(91, 224, 218);
+// }
 
 /* Tweeter like map list */
 .map-grid {

@@ -10,14 +10,16 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script
       src="https://kit.fontawesome.com/90d60d73c6.js"
       crossorigin="anonymous"
     ></script>
     <!-- <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/mymaps.js"></script>
+    <script type="text/javascript" src="/scripts/mymap.js"></script>
     <script type="text/javascript" src="/scripts/favourites.js"></script>
     <script src="/scripts/client.js"></script>
     <script src="/scripts/map.js"></script>
@@ -73,9 +75,9 @@
     <header class="text-white">
       <nav class="navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="/"
-          >MapWiki <i class="fas fa-globe"></i
-        ></a>
-        <button
+          >PinPointer <i class="fas fa-map-marker-alt"></i>
+        </a>
+        <!-- <button
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -85,7 +87,7 @@
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a id="usermaps" class="nav-item nav-link">My Maps</a>
@@ -95,7 +97,7 @@
         </div>
 
         <!-- input form -->
-        <b><span id="form-msg" class="text-light">Enter Email:</span></b>
+        <!-- <b><span id="form-msg" class="text-light">Enter Email:</span></b>
         <form
           class="form-control form-control-lg form-inline"
           method="post"
@@ -112,10 +114,10 @@
             placeholder="example@email.com"
           />
           <button class="btn btn-warning" id="login-button">Login</button>
-        </form>
+        </form> -->
 
         <!-- register -->
-        <form
+        <!-- <form
           class="form-control form-control-lg form-inline"
           action="/register"
           method="post"
@@ -123,12 +125,12 @@
           name="usernameform"
         >
           <button class="btn btn-warning" id="register-button">Register</button>
-        </form>
+        </form> -->
 
         <!-- logout -->
-        <button class="btn btn-dark" style="display:inline" id="logout-button">
+        <!-- <button class="btn btn-dark" style="display:inline" id="logout-button">
           Logout
-        </button>
+        </button> -->
       </nav>
     </header>
     <main>
@@ -140,8 +142,10 @@
       <!-- Map Form -->
 
       <div id="maps"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-1dTUpgb4f7Za4f5vey93FaMvhr13yI&amp;callback=initMap"></script>
-    </main>
+     <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCepnzQ22dqC7SVI5rHnZ0zpx3opQs3esQ&callback=initMap">
+      </script>
+
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"

@@ -14,11 +14,11 @@ INSERT INTO maps (user_id, title, description, image_url, active) VALUES (2,'Lig
 INSERT INTO maps (user_id, title, description, image_url, active) VALUES (3,'Lighthouse x HealthyRestaurants', 'a list of all my faspots', 'https://picsum.photos/id/1010/367/267', true);
 INSERT INTO maps (user_id, title, description, image_url, active) VALUES (4,'Lighthouse x Groceries', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/142/367/267', true);
 INSERT INTO maps (user_id, title, description, image_url, active) VALUES (3,'Lighthouse x CheapEats', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/1033/367/267', true);
-INSERT INTO maps (user_id, title, description, image_url, active) VALUES (1,'Asmas Go To Cafe Spots', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/1051/367/267', true);
-INSERT INTO maps (user_id, title, description, image_url, active) VALUES (2,'Lighthouse x VeganGalour', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/117/367/267', true);
+INSERT INTO maps (user_id, title, description, image_url, active) VALUES (1,'Ban Go To Cafe Spots', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/1051/367/267', true);
+INSERT INTO maps (user_id, title, description, image_url, active) VALUES (2,'Fav vegan places', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/117/367/267', true);
 INSERT INTO maps (user_id, title, description, image_url, active) VALUES (2,'Top 10 Auto Shops in Toronto', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/119/367/267', true);
-INSERT INTO maps (user_id, title, description, image_url, active) VALUES (4,'Lighthouse x Starbucks', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/134/367/267', true);
-INSERT INTO maps (user_id, title, description, image_url, active) VALUES (1,'Top 5 Restaurants on King Street', 'Here is a list of all my favourite food spots', 'https://food.fnr.sndimg.com/content/dam/images/food/editorial/shows/t/top-5-restaurants/FN-ShowChip-Top-5-Restaurants.jpg.rend.hgtvcom.616.347.suffix/1431113622782.jpeg', true);
+INSERT INTO maps (user_id, title, description, image_url, active) VALUES (4,'Lighthouse coffeeshops', 'Here is a list of the Starbucks locations near Lighthouse Labs', 'https://picsum.photos/id/134/367/267', true);
+INSERT INTO maps (user_id, title, description, image_url, active) VALUES (1,'My Top 5 Restaurants', 'Here is a list of all my favourite food spots', 'https://food.fnr.sndimg.com/content/dam/images/food/editorial/shows/t/top-5-restaurants/FN-ShowChip-Top-5-Restaurants.jpg.rend.hgtvcom.616.347.suffix/1431113622782.jpeg', true);
 
 --            USER_MAPS             --
 INSERT INTO user_maps (user_id, map_id) VALUES (1,6);
