@@ -25,6 +25,7 @@ module.exports = db => {
     ];
     let queryString = ` INSERT INTO markers (user_id, map_id, title, description, image_url, address, latitude, longitude) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) `;
 
+
     return db.query(queryString, queryParams).then(res => res.rows[0]);
   };
 
