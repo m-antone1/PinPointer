@@ -1,6 +1,14 @@
 LHL Node Skeleton
 =========
 
+
+## Screen shots
+!["my-map"](https://github.com/m-antone1/PinPointer/blob/testPointer/public/images/my-map.png?raw=true)
+
+!["maps-option"](https://github.com/m-antone1/PinPointer/blob/testPointer/public/images/maps-options.png?raw=true)
+
+
+
 ## Project Setup
 
 The following steps are only for _one_ of the group members to perform.
