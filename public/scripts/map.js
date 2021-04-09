@@ -31,12 +31,21 @@ const deleteMarkerData = marker_id => {
   });
 };
 
+const editMarkerData = marker => {
+  console.log("marker", marker);
+  $.ajax({
+    method: "POST",
+    url: `/api/markers/edit/${marker.id}`
+  });
+};
+
 const renderMarkerPopover = (marker, existingMarker, mapid) => {
   getCookie = function(name) {
     var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
     if (match) return match[2];
   };
   if (existingMarker) {
+    console.log("existingMARKER", existingMarker);
     return new google.maps.InfoWindow({
       content: `<div id="content"
       style='filter:invert(1) hue-rotate(243deg);'
@@ -95,7 +104,7 @@ const renderMarkerPopover = (marker, existingMarker, mapid) => {
           <input type="hidden" name="lat" value="${marker.position.lat()}" />
           <input type="hidden" name="lng" value="${marker.position.lng()}" />
           <div>
-            <button type="submit"><a href="/">Create<a></button>
+            <button type="submit">Create</button>
             <a id="login-form__cancel" href="/">Cancel</a>
           </div>
         </form>
