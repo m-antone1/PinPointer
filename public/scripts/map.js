@@ -31,10 +31,11 @@ const deleteMarkerData = marker_id => {
   });
 };
 
-const editMarkerData = marker_id => {
+const editMarkerData = marker => {
+  console.log("marker", marker);
   $.ajax({
     method: "POST",
-    url: `/api/markers/edit/${marker_id}`
+    url: `/api/markers/edit/${marker.id}`
   });
 };
 
@@ -44,6 +45,7 @@ const renderMarkerPopover = (marker, existingMarker, mapid) => {
     if (match) return match[2];
   };
   if (existingMarker) {
+    console.log("existingMARKER", existingMarker);
     return new google.maps.InfoWindow({
       content: `<div id="content"
       style='filter:invert(1) hue-rotate(243deg);'
