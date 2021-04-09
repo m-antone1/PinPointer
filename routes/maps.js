@@ -4,24 +4,10 @@ const express = require("express");
 const router = express.Router();
 module.exports = db => {
   const createNewMarker = function (
-    user_id,
-    map_id,
-    title,
-    description,
-    image_url,
-    address,
-    latitude,
-    longitude
+    user_id, map_id, title, description, image_url, address, latitude, longitude
   ) {
     const queryParams = [
-      user_id,
-      map_id,
-      title,
-      description,
-      image_url,
-      address,
-      latitude,
-      longitude
+      user_id, map_id, title, description, image_url, address, latitude, longitude
     ];
     let queryString = ` INSERT INTO markers (user_id, map_id, title, description, image_url, address, latitude, longitude) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) `;
 
@@ -46,6 +32,7 @@ module.exports = db => {
       return db.query(queryString, queryParams).then(res => res.rows);
     };
 
+    //retrieve up to ten maps
     getAllMaps(10)
       .then(maps => {
         res.send({
@@ -71,7 +58,7 @@ module.exports = db => {
   router.get("/user", (req, res) => {
     const getMapsByEmail = function (email, limit) {
       const queryParams = [];
-      // 2
+
       let queryString = `
           SELECT * FROM users
           JOIN maps on maps.user_id = users.id
@@ -107,11 +94,7 @@ module.exports = db => {
   });
 
   const createNewMap = function (
-    user_id,
-    title,
-    description,
-    image_url,
-    active
+    user_id, title, description, image_url, active
   ) {
 
     const queryParams = [user_id, title, description, image_url, active];
@@ -133,14 +116,7 @@ module.exports = db => {
   router.post("/markers", (req, res) => {
     let data = req.body;
     createNewMarker(
-      data.user_id,
-      data.map_id,
-      data.title,
-      data.description,
-      data.image_url,
-      data.address,
-      data.latitude,
-      data.longitude
+      data.user_id, data.map_id, data.title, data.description, data.image_url, data.address, data.latitude, data.longitude
     );
     res.send(`<h1> ${data} </h1>`);
   });
