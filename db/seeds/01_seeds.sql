@@ -95,6 +95,3 @@ INSERT INTO markers (user_id, map_id, title, description, image_url, address, la
 INSERT INTO markers (user_id, map_id, title, description, image_url, address, latitude, longitude) VALUES (4,9,'Starbucks #2','This Starbucks is still pretty close, only 400 m away!', 'https://media-exp1.licdn.com/dms/image/C4D0BAQEQxk9y2rk7Hw/company-logo_200_200/0?e=2159024400&v=beta&t=cb41HQizJjoxW778MdkvTZNxKCfiEm4yUKW9_7vnYOg', '580 Queen St W', 43.64737, -79.4059146);
 INSERT INTO markers (user_id, map_id, title, description, image_url, address, latitude, longitude) VALUES (4,9,'Starbucks #3','This Starbucks is close by, 650 m away!', 'https://media-exp1.licdn.com/dms/image/C4D0BAQEQxk9y2rk7Hw/company-logo_200_200/0?e=2159024400&v=beta&t=cb41HQizJjoxW778MdkvTZNxKCfiEm4yUKW9_7vnYOg', '438 Richmond St W', 43.6513952, -79.3829692);
 INSERT INTO markers (user_id, map_id, title, description, image_url, address, latitude, longitude) VALUES (4,9,'Starbucks #4','This Starbucks is if you need to smell the fresh air before you smell the coffee, 1 km away.', 'https://media-exp1.licdn.com/dms/image/C4D0BAQEQxk9y2rk7Hw/company-logo_200_200/0?e=2159024400&v=beta&t=cb41HQizJjoxW778MdkvTZNxKCfiEm4yUKW9_7vnYOg', '1005 Queen St W', 43.6445745, -79.4188332);
-
-
-
